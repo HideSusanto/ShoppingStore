@@ -17,8 +17,10 @@ function LoginForm() {
         // Xử lý phản hồi từ máy chủ (backend) nếu cần
   
 		if (response.data.accessToken) {
-			console.log(response.data.accessToken);
+			console.log({"accessToken" :response.data.accessToken,
+      "UserInfo" : response.data.UserInfo});
 			localStorage.setItem('userToken', JSON.stringify(response.data.accessToken));
+      navigate("/");
 
 		}
 		//console.log(localStorage.getItem('userToken'));
@@ -31,9 +33,9 @@ function LoginForm() {
   	
   return (
 	<div className="login-page">
-  <div className="form" onSubmit={handleSubmit}>
+  <div className="form" >
   <h1 style={{padding : "25px"}}>LOGIN ACCOUNT</h1>
-    <form className="login-form">
+    <form className="login-form" onSubmit={handleSubmit}>
       <input type="Email" placeholder="email" onChange={(e) => setEmail(e.target.value)}/>
       <input type="password" placeholder="password"  onChange={(e) => setPassword(e.target.value)}/>
       <button>login</button>

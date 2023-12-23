@@ -31,7 +31,7 @@
   @media (max-width: 768px) {
     .navbar {
       flex-direction: column; /* Chuyển Navbar thành layout dọc */
-      align-items: flex-start; /* Canh trái cho các phần tử */
+      align-items: center; /* Canh trái cho các phần tử */
     }
   
     .navbar-logo {

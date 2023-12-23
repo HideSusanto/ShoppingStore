@@ -37,7 +37,9 @@ const userController = {
             expiresIn : '24h'
           }); // Thay 'your-secret-key' bằng khóa bí mật thực tế
 
-          res.status(200).json({accessToken});
+          res.status(200).json({accessToken,
+          UserInfo: user
+          });
           }
         } catch (error) {
           res.status(500).json({ message: error.message });
