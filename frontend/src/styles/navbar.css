@@ -1,7 +1,7 @@
 /* Navbar.css */
 .navbar {
-    background-color: #333;
-    color: #fff;
+    background-color: transparent;
+    color: #333;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -19,7 +19,7 @@
   }
   
   .navbar-item {
-    color: #fff;
+    color: #333;
     margin-right: 30px;
     cursor: pointer;
   }

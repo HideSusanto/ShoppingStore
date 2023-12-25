@@ -36,7 +36,20 @@ const productController = {
         } catch (error) {
           return res.status(500).json({ message: error.message });
         } 
+      },
+    deleteAProduct: async function(req,res){
+      try {
+        const product = await Product.findById(req.params.id);
+        if(product === null) {
+          return res.status(404).json({ message: 'Cannot find product' });
+        }
+        await Product.findByIdAndRemove(req.params.id);
+        res.status(200).json({ message: 'Product deleted successfully' });
       }
+      catch (error) {
+        return res.status(500).json({ message: error.message });
+      }
+    }
 }
 
 module.exports = productController;

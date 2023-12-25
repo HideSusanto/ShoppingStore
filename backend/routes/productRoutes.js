@@ -12,6 +12,8 @@ router.post('/', productController.addProduct);
 // GET: Lấy thông tin chi tiết sản phẩm
 router.get('/:id', productController.getAProduct);
 
+// DELETE: Xóa một sản phầm
+router.delete('/:id', productController.deleteAProduct);
 
 
 module.exports = router;
