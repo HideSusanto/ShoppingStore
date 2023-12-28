@@ -15,5 +15,7 @@ router.get('/:id', productController.getAProduct);
 // DELETE: Xóa một sản phầm
 router.delete('/:id', productController.deleteAProduct);
 
+// UPDATE: Cập nhật một sản phẩm
+router.patch('/:id', productController.updateAProduct)
 
 module.exports = router;

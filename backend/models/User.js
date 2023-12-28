@@ -15,7 +15,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a password!"],
     unique: false,
-  }
+  },
+  role: { 
+    type: String, enum: ['user', 'admin'], default: 'user' 
+  },
+  orders: [
+    { type: mongoose.Schema.Types.ObjectId, ref: 'Order' }
+  ]
 });
 
 

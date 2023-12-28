@@ -49,7 +49,25 @@ const productController = {
       catch (error) {
         return res.status(500).json({ message: error.message });
       }
-    }
+    },
+    updateAProduct: async function(req, res) {
+      try {
+        const productId = req.params.id;
+        const updateData = req.body;
+    
+        // Kiểm tra xem sản phẩm có tồn tại không
+        const product = await Product.findById(productId);
+        if (product === null) {
+          return res.status(404).json({ message: 'Cannot find product' });
+        }
+    
+        // Thực hiện cập nhật thông tin sản phẩm
+        const updatedProduct = await Product.findByIdAndUpdate(productId, updateData, { new: true });
+        res.status(200).json(updatedProduct);
+      } catch (error) {
+        return res.status(500).json({ message: error.message });
+      }
+    },
 }
 
 module.exports = productController;
