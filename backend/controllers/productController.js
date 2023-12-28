@@ -1,3 +1,4 @@
+const Category = require('../models/Category');
 const Product = require('../models/Product'); // Import mô hình sản phẩm
 
 const productController = {
@@ -15,11 +16,21 @@ const productController = {
         const product = new Product({
           name: req.body.name,
           price: req.body.price,
-          decription: req.body.decription
+          decription: req.body.decription,
+          images: req.body.images,
+          quantity: req.body.quantity,
+          attributes: req.body.attributes,
+          category: req.body.category
         });
       
         try {
           const newProduct = await product.save();
+          const category = await Category.findOne({name : newProduct.category});
+          if (!category) {
+            return res.status(404).json({ message: 'Category not found' });
+          }
+          category.products.push(newProduct._id);
+          await category.save();
           res.status(201).json(newProduct);
         } catch (error) {
           res.status(400).json({ message: error.message });
@@ -43,6 +54,10 @@ const productController = {
         if(product === null) {
           return res.status(404).json({ message: 'Cannot find product' });
         }
+        const category = await Category.findOne({name : product.category});
+        const index = category.products.indexOf(product._id);
+        category.products.splice(index,1);
+        await category.save();
         await Product.findByIdAndRemove(req.params.id);
         res.status(200).json({ message: 'Product deleted successfully' });
       }
