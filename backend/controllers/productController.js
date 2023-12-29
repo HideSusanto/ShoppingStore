@@ -11,12 +11,23 @@ const productController = {
           res.status(500).json({ message: error.message });
         }
     },
+    // GET SOME PRODUCTS
+    getSomeProducts: async (req, res) => {
+        try {
+          const pageNum = req.query.page;
+          const productPerPage = req.query.per_page;
+          const products = (await Product.find()).slice((pageNum - 1)*productPerPage, pageNum*productPerPage);  
+          res.status(200).json(products);
+        } catch (error) {
+          res.status(500).json({ message: error.message });
+        }
+    },
     // ADD PRODUCT
     addProduct: async (req, res) => {
         const product = new Product({
           name: req.body.name,
           price: req.body.price,
-          decription: req.body.decription,
+          description: req.body.description,
           images: req.body.images,
           quantity: req.body.quantity,
           attributes: req.body.attributes,

@@ -4,7 +4,10 @@ const productController = require('../controllers/productController')
 const verifyToken = require('../middleware/verifyToken')
 
 // GET: Lấy danh sách sản phẩm
-router.get('/',productController.getAllProducts);
+router.get('/all',productController.getAllProducts);
+
+// GET: Lấy danh sách 1 số sản phẩm
+router.get('/',productController.getSomeProducts);
 
 // POST: Tạo sản phẩm mới
 router.post('/', productController.addProduct);
