@@ -1,7 +1,12 @@
+import { useNavigate } from 'react-router-dom'
 
   const ProductBadge = ({id, name, description, image, price, category}) => {
+    const navigate = useNavigate();
+    const handleclick = () =>{
+      navigate(`/product/${id}`);
+    }
       return ( 
-              <div key={id} className="group relative">
+              <div onClick={handleclick} key={id} className="group relative cursor-pointer">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                   <img
                     src={image}
