@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
   price: Number,
   images: [{ type: String }], // Sử dụng mảng để lưu trữ nhiều hình ảnh
   quantity: Number,
-  attributes: [{ size: String, color: String }],
+  attributes: [{ color: String }],
   category: String,
   details: String,
 });

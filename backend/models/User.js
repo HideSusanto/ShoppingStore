@@ -6,6 +6,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  usercoverimg : {
+    type: String,
+    default: 'https://scontent.fsgn5-8.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?_nc_cat=1&ccb=1-7&_nc_sid=2b6aad&_nc_eui2=AeE6KjqVXtc_SZ9W7i0_jeoUso2H55p0AlGyjYfnmnQCUUgpC6zkXEmHsOzQt8NNjHqfZAGlVYFxhku7LmXZDw1K&_nc_ohc=dVaPzd0ULbwAX8TrFSy&_nc_ht=scontent.fsgn5-8.fna&oh=00_AfAPIo3JH4V2Z9j5Ck4TffVhFiZSWrGqIT2Yk-54egxCwg&oe=65BA97B8'
+  },
   email: {
     type: String,
     required: [true, "Please provide an Email!"],

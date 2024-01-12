@@ -25,12 +25,14 @@ const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 const OrderRoutes = require('./routes/orderRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
+const reviewRoutes = require('./routes/reviewRoutes');
 // ...
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', OrderRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/reviews', reviewRoutes)
 // ...
 
 app.get('/protected-route', verifyToken, (req, res) => {

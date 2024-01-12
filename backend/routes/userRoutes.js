@@ -11,4 +11,7 @@ router.post('/login', userController.checkUser);
 // GET: lấy tất cả người dùng
 router.get('/', verifyToken , userController.getAllUsers);
 
+//GET: lấy người dùng bằng id
+router.get('/:id', verifyToken , userController.getAnUser);
+
 module.exports = router;

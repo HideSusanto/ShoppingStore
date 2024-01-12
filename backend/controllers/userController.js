@@ -33,7 +33,7 @@ const userController = {
             return res.status(401).json({ message: 'Invalid password' });
           } else {
             // Đăng nhập thành công, tạo mã thông báo (JWT) và gửi cho người dùng
-          const accessToken = jwt.sign({ userId: user._id, userName: user.username }, secretKey, {
+          const accessToken = jwt.sign({ userId: user._id, userName: user.username, usercoverimg: user.usercoverimg }, secretKey, {
             expiresIn : '24h'
           }); // Thay 'your-secret-key' bằng khóa bí mật thực tế
 
@@ -54,6 +54,14 @@ const userController = {
           res.status(500).json({ message: error.message });
         }
     },
+    getAnUser: async (req, res) => {
+      try {
+        const user = await User.findById(req.params.id);
+        res.status(200).json(user);
+      } catch (error) {
+        res.status(500).json({ message: error.message });
+      }
+  },
     
 }
 
