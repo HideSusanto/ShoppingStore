@@ -22,7 +22,7 @@ const Cart = () => {
   return (
     <div className="mx-56 bg-white p-9">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-5xl font-bold">Your Cart</h2>
+        <h2 className="text-3xl font-bold">Your Cart</h2>
         <img src={CartImage} alt="Shopping Cart" className="w-16 h-16" />
       </div>
 
@@ -48,14 +48,14 @@ const Cart = () => {
       </ul>
        {/* Address and Payment */}
        <div className="mt-4">
-        <h3 className="text-3xl font-bold mb-2">Shipping Address</h3>
-        <p className="text-2xl text-gray-700">
+        <h3 className="text-2xl font-bold mb-2">Shipping Address</h3>
+        <p className="text-xl text-gray-700">
           {shippingAddress.street}, {shippingAddress.city}, {shippingAddress.country}
         </p>
       </div>
       <div className="mt-4">
-        <h3 className="text-3xl font-bold mb-2">Payment Method</h3>
-        <p className="text-2xl text-gray-700">{paymentMethod}</p>
+        <h3 className="text-2xl font-bold mb-2">Payment Method</h3>
+        <p className="text-xl text-gray-700">{paymentMethod}</p>
       </div>     
       {/* Total */}
       <div className="flex justify-between items-center mt-4">

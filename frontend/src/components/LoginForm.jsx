@@ -20,7 +20,7 @@ function LoginForm() {
 			console.log({"accessToken" :response.data.accessToken,
       "UserInfo" : response.data.UserInfo});
 			localStorage.setItem('userToken', JSON.stringify(response.data.accessToken));
-      alert("Sign In Successful!");
+      alert("Login successful");
       navigate("/");
 
 		}

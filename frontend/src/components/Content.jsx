@@ -43,7 +43,7 @@ const Content = () => {
           {products.map((product) => (
             <ProductBadge key={product._id}
             id = {product._id} 
-            name = {product.name}  
+            name = {product.name}
             description={product.description} 
             image={product.images[0]}
             price={product.price}
