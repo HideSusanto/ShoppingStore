@@ -14,7 +14,7 @@ const Content = () => {
       setCurrentPage(pageParams);
       const response = await axios.get('http://localhost:8000/api/products', { params: { per_page: 8, page : page } });
       setProducts(response.data);
-      const totalCount = (await axios.get('http://localhost:8000/api/products/all')).data.length;
+      const totalCount = (await axios.get('http://localhost:8000/api/products')).data.length;
       console.log(totalCount);  
       const totalPages = Math.ceil(totalCount / 8); // Giả sử mỗi trang hiển thị 8 sản phẩm
       setTotalPages(totalPages);

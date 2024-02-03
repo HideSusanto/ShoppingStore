@@ -7,7 +7,7 @@ import Cart from '../components/Cart';
 function Home() {
     return(
         <div>
-          <Content></Content>
+          <Cart></Cart>
         </div>
     
     );
